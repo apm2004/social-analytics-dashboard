@@ -5,6 +5,7 @@ import DemographicsChart from '../components/dashboard/DemographicsChart';
 import AIInsightsPanel from '../components/insights/AIInsightsPanel';
 import AlertsPanel from '../components/dashboard/AlertsPanel';
 import DashboardLayout from '../components/common/DashboardLayout';
+import ExportButton from '../components/common/ExportButton';
 import { kpiData } from '../utils/mockData';
 
 export default function DashboardPage() {
@@ -12,9 +13,12 @@ export default function DashboardPage() {
     <DashboardLayout>
       <div className="space-y-6">
         {/* Page Header */}
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
-          <p className="text-gray-600 mt-1">Welcome back! Here's what's happening with your social media.</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
+            <p className="text-gray-600 mt-1">Welcome back! Here's what's happening with your social media.</p>
+          </div>
+          <ExportButton />
         </div>
 
         {/* KPI Cards */}
