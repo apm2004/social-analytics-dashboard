@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import useDebounce from '../../hooks/useDebounce';
 
@@ -7,11 +7,11 @@ export default function SearchBar({ onSearch, placeholder = "Search content..." 
   const debouncedSearch = useDebounce(searchTerm, 300);
 
   // Call onSearch when debounced value changes
-  useState(() => {
+  useEffect(() => {
     if (onSearch) {
       onSearch(debouncedSearch);
     }
-  }, [debouncedSearch]);
+  }, [debouncedSearch, onSearch]);
 
   const handleClear = () => {
     setSearchTerm('');
